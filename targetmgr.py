@@ -146,6 +146,14 @@ def delete_all_targets():
     return None
 
 
+def delete_fabric():
+    """
+    Delete iscsi fabric object.
+    """
+    # delete folder /sys/kernel/config/target/iscsi
+    rtslib.node.CFSNode.delete(rtslib.FabricModule('iscsi'))
+
+
 # --- TPG Functions ---
 def _get_single_tpg(iqn):
     """
@@ -408,8 +416,7 @@ if __name__ == '__main__':
             logger.info("cleanup target resources!")
             delete_all_targets()
             delete_all_backstores()
-            # delete folder /sys/kernel/config/target/iscsi
-            rtslib.node.CFSNode.delete(rtslib.FabricModule('iscsi'))
+            delete_fabric()
             logger.info("done!")
             sys.exit()
 
