@@ -2,7 +2,7 @@
 """
 Wrapper for rtslib by ISG D-PHYS ETHZ to manage iSCSI targets.
 
-Reads the configuration from `./config.json` and
+Reads the configuration from `./targetmgr.json` and
 creates the corresonding iSCSI targets.
 
 Further documentation:
