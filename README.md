@@ -6,7 +6,6 @@ creates the corresonding iSCSI targets.
 Further documentation:
 
     - rtslib:  http://linux-iscsi.org/Doc/rtslib/html/
-    - logging: https://docs.python.org/2/howto/logging.html
 
 CLI options:
 
