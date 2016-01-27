@@ -397,6 +397,16 @@ def save_to_disk():
     os.system("echo -e 'ls\nsaveconfig\nyes' | targetcli >/dev/null")
 
 
+def read_target_config():
+    """
+    Read the configfile.
+    """
+    with open(os.path.dirname(os.path.abspath(__file__)) + '/targetmgr.json', 'r') as json_file:
+        config = json.load(json_file)
+
+    return config
+
+
 # --- Main Function ---
 if __name__ == '__main__':
 
@@ -430,8 +440,7 @@ if __name__ == '__main__':
             os.makedirs(LIO_CFS_DIR)
 
     logger.info("read configfile")
-    with open(os.path.dirname(os.path.abspath(__file__)) + '/targetmgr.json', 'r') as json_file:
-        iscsi_config = json.load(json_file)
+    iscsi_config = read_target_config()
 
     for target in iscsi_config['targets']:
         create_target(target['iqn'])
