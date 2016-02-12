@@ -222,6 +222,13 @@ def set_custom_tpg_attributes(iqn):
     return None
 
 
+def enable_tpg(iqn, status):
+    """
+    Enables or disables the TPG. Raises an error if trying to disable a TPG without en enable attribute (but enabling works in that case).
+    """
+    _get_single_tpg(iqn)._set_enable(status)
+
+
 # --- Portal Functions ---
 def current_portals(iqn):
     """
@@ -460,5 +467,7 @@ if __name__ == '__main__':
                 target['iqn_initiator'],
                 lun['name']
             )
+
+        enable_tpg(target['iqn'], 1)
 
     save_to_disk()
