@@ -437,8 +437,12 @@ if __name__ == '__main__':
             logger.info("done!")
             sys.exit()
 
-    if rtslib.FabricModule('iscsi').exists:
-        print("Existing target setup!")
+    if rtslib.root.RTSRoot().backstores:
+        print("Backstores existing!")
+        sys.exit()
+
+    if rtslib.FabricModule('iscsi').targets:
+        print("Existing targets!")
         sys.exit()
 
     logger.info("Check for LIO_CFS_DIR")
