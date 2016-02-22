@@ -86,8 +86,13 @@ def create_iblock(iblock):
     else:
         logger.debug("Creating iblock %s" % iblock['name'])
         backstore = rtslib.IBlockBackstore(_next_free_backstore_index(), mode='create')
+        if '/dev/' in iblock['device']:
+            device = iblock['device']
+        else:
+            device = '/dev/disk/by-id/' + iblock['device']
+
         try:
-            rtslib.IBlockStorageObject(backstore, iblock['name'], iblock['device'], gen_wwn=True)
+            rtslib.IBlockStorageObject(backstore, iblock['name'], device, gen_wwn=True)
         except:
             backstore.delete()
             raise
