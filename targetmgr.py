@@ -406,7 +406,7 @@ def create_mapped_lun(iqn, iqn_initiator, lun):
 
 
 def save_to_disk():
-    os.system("echo -e 'ls\nsaveconfig\nyes' | targetcli >/dev/null")
+    os.system("echo 'y' | targetcli saveconfig")
 
 
 def read_target_config():
