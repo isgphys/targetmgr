@@ -92,7 +92,7 @@ def create_iblock(iblock):
             device = '/dev/disk/by-id/' + iblock['device']
 
         try:
-            rtslib.IBlockStorageObject(backstore, iblock['name'], device, gen_wwn=True)
+            rtslib.IBlockStorageObject(backstore, iblock['name'], device, "gen_wwn=True")
         except:
             backstore.delete()
             raise
