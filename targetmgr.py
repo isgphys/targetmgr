@@ -442,11 +442,7 @@ if __name__ == '__main__':
             logger.info("done!")
             sys.exit()
 
-    if rtslib.root.RTSRoot().backstores:
-        print("Backstores existing!")
-        sys.exit()
-
-    if rtslib.FabricModule('iscsi').targets:
+    if len(current_targets()):
         print("Existing targets!")
         sys.exit()
 
