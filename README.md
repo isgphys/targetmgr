@@ -3,7 +3,7 @@ targetmgr
 
 Wrapper for rtslib developed and used by [IT Services Group](http://isg.phys.ethz.ch) of the Physics Department at ETH Zurich to manage our iSCSI targets.
 
-Works with >= ''Ubuntu Xenial 16.04''
+Works with >= 'Ubuntu Xenial 16.04'
 
 Further documentation:
 
